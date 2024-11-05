@@ -1,15 +1,17 @@
 import sys
 import os
-import imp
+import importlib
 from glob import glob
 
 #######################################################
 # reusable functions and data structures
 #######################################################
 def LoadTool(name, env, **kw):
-    config_path = GetBuildPath('#/Build/Tools/SCons')
-    file, path, desc = imp.find_module(name, [config_path])
-    module = imp.load_module(name, file, path, desc)
+    config_path  = os.path.abspath(GetBuildPath("#/Build/Tools/SCons"))
+    file_path = os.path.join(config_path,f"{name}.py")
+    spec = importlib.util.spec_from_file_location("gcc-generic", file_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
     module.generate(env, **kw)
 
 def MergeListUnique(item_list, items):
