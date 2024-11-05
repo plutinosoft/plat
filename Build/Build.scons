@@ -9,7 +9,7 @@ from glob import glob
 def LoadTool(name, env, **kw):
     config_path  = os.path.abspath(GetBuildPath("#/Build/Tools/SCons"))
     file_path = os.path.join(config_path,f"{name}.py")
-    spec = importlib.util.spec_from_file_location("gcc-generic", file_path)
+    spec = importlib.util.spec_from_file_location(name, file_path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     module.generate(env, **kw)
