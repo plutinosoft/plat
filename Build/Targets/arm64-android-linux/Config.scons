@@ -31,10 +31,10 @@ else:
 		raise Exception('Android Host Platform cannot be determined')
 
 # set defaults
-ANDROID_ARCH         = 'arm'
-ANDROID_PLATFORM     = 'android-9'
-ANDROID_TOOLCHAIN    = 'arm-linux-androideabi-4.9'
-ANDROID_CROSS_PREFIX = 'arm-linux-androideabi'
+ANDROID_ARCH         = 'arm64'
+ANDROID_PLATFORM     = 'android-21'
+ANDROID_TOOLCHAIN    = 'aarch64-linux-android-4.9'
+ANDROID_CROSS_PREFIX = 'aarch64-linux-android'
 
 if not os.path.exists(os.path.join(ANDROID_NDK_ROOT, 'toolchains', ANDROID_TOOLCHAIN)):
     toolchain_dirs = os.listdir(ANDROID_NDK_ROOT+'/toolchains')
@@ -80,9 +80,9 @@ env['NPT_EXTRA_LIBS'] = ['gcc']
 LoadTool('gcc-generic', env, gcc_cross_prefix=ANDROID_CROSS_PREFIX, gcc_strict=False)
 env.AppendUnique(CCFLAGS = ['-I'+ANDROID_NDK_ROOT+'/sources/cxx-stl/system/include' ,
                             '--sysroot', ANDROID_SYSROOT,
-                            '-msoft-float',
+                        #    '-msoft-float',
                             '-fpic',
-                            '-mthumb-interwork',
+                         #   '-mthumb-interwork',
                             '-ffunction-sections',
                             '-funwind-tables',
                             '-fstack-protector',
