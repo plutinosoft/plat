@@ -6,3 +6,6 @@ xcuserdata
 *.pyc
 .scons*
 .DS_Store
+Build/Targets/arm64-android-linux/Debug
+Build/Targets/arm64-android-linux/Release
+

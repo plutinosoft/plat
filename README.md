@@ -109,8 +109,12 @@ Under Source/Extras/Managed
 
 ## Android Java/JNI
 To build the JNI shared library, you will need to install the Android NDK and set up the proper environment variables such as ANDROID_NDK_ROOT.
+(android-ndk-r15c recommended;If a path error occurs, use the absolute path.)
 ```
+> scons -c target=arm-android-linux build_config=Release
 > scons target=arm-android-linux build_config=Release
+> scons -c target=arm64-android-linux build_config=Release
+> scons target=arm64-android-linux build_config=Release
 > cd Source/Platform/Android/module/platinum
 > ndk-build NDK_DEBUG=0
 ```
