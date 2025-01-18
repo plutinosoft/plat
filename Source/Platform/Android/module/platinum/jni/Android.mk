@@ -18,13 +18,13 @@ LOCAL_EXPORT_C_INCLUDES += $(PLT_SRC_ROOT)/Devices/MediaConnect
 LOCAL_EXPORT_C_INCLUDES += $(PLT_SRC_ROOT)/Devices/MediaServer
 LOCAL_EXPORT_C_INCLUDES += $(PLT_SRC_ROOT)/Devices/MediaRenderer
 LOCAL_EXPORT_C_INCLUDES += $(PLT_SRC_ROOT)/Extras
-LOCAL_C_INCLUDES += $(PLT_ROOT)/../Neptune/Source/Core
+LOCAL_C_INCLUDES += $(PLT_ROOT)/ThirdParty/Neptune/Source/Core
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := Neptune
 LOCAL_SRC_FILES := $(PLT_PREBUILT_PATH)/libNeptune.a
-LOCAL_EXPORT_C_INCLUDES += $(PLT_ROOT)/../Neptune/Source/Core
+LOCAL_EXPORT_C_INCLUDES += $(PLT_ROOT)/ThirdParty/Neptune/Source/Core
 include $(PREBUILT_STATIC_LIBRARY)
 
 ifneq ($(NPT_CONFIG_NO_SSL),1)

@@ -32,7 +32,7 @@ else:
 
 # set defaults
 ANDROID_ARCH         = 'arm'
-ANDROID_PLATFORM     = 'android-9'
+ANDROID_PLATFORM     = 'android-14'
 ANDROID_TOOLCHAIN    = 'arm-linux-androideabi-4.9'
 ANDROID_CROSS_PREFIX = 'arm-linux-androideabi'
 
