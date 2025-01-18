@@ -2,12 +2,23 @@ LOCAL_PATH := $(call my-dir)
 
 PLT_ROOT := $(LOCAL_PATH)/../../../../../..
 PLT_SRC_ROOT := $(PLT_ROOT)/Source
-
+$(warning "TARGET_ARCH_ABI:$(TARGET_ARCH_ABI)")
 ifeq ($(NDK_DEBUG),1)
+ifeq ($(TARGET_ARCH_ABI),arm64-v8a)
+$(warning "build arm64")
+PLT_PREBUILT_PATH := ../../../../../../Build/Targets/arm64-android-linux/Debug
+else
 PLT_PREBUILT_PATH := ../../../../../../Build/Targets/arm-android-linux/Debug
+endif
+else
+ifeq ($(TARGET_ARCH_ABI),arm64-v8a)
+$(warning "build arm64")
+PLT_PREBUILT_PATH := ../../../../../../Build/Targets/arm64-android-linux/Release
 else
 PLT_PREBUILT_PATH := ../../../../../../Build/Targets/arm-android-linux/Release
 endif
+endif
+
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := Platinum
