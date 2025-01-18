@@ -19,8 +19,8 @@ if env.has_key('android_host_system') and env['android_host_system']:
 	ANDROID_HOST_SYSTEM = env['android_host_system']
 else:
 	PLATFORM_TO_TARGET_MAP = {
-    	'linux-i386' : 'linux-x86',
-    	'linux2'     : 'linux-x86',
+    	'linux-i386' : 'linux-x86_64',
+    	'linux2'     : 'linux-x86_64',
     	'win32'      : 'windows',
     	'cygwin'     : 'windows',
     	'darwin'     : 'darwin-x86'
@@ -33,7 +33,7 @@ else:
 # set defaults
 ANDROID_ARCH         = 'arm'
 ANDROID_PLATFORM     = 'android-9'
-ANDROID_TOOLCHAIN    = 'arm-linux-androideabi-4.4.3'
+ANDROID_TOOLCHAIN    = 'arm-linux-androideabi-4.9'
 ANDROID_CROSS_PREFIX = 'arm-linux-androideabi'
 
 if not os.path.exists(os.path.join(ANDROID_NDK_ROOT, 'toolchains', ANDROID_TOOLCHAIN)):
